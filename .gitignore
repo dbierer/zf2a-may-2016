@@ -1,0 +1,6 @@
+data/
+vendor/
+*/vendor/
+vendor
+*/vendor
+.project
