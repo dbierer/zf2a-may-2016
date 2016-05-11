@@ -64,7 +64,7 @@ class Module
 		}
 	}
 	
-	// Code has been moved to Market\Model\ListingsTableAwareInterfaceInitializer.php and module.config.php
+    // Code has been moved to Market\Model\ListingsTableAwareInterfaceInitializer.php and module.config.php
     /*public function getControllerConfig()
     {
         return [
