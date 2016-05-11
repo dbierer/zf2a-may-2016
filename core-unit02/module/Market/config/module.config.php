@@ -145,11 +145,17 @@ return array(
     ),
     'controllers' => array(
     	'factories' => array(
-            'market-index-controller'  => 'Market\Factory\IndexControllerFactory',
+            //'market-index-controller'  => 'Market\Factory\IndexControllerFactory',
             'market-view-controller'   => 'Market\Factory\ViewControllerFactory',
             'market-post-controller'   => 'Market\Factory\PostControllerFactory',
             'market-delete-controller' => 'Market\Factory\DeleteControllerFactory',
     	),
+        'invokables' => array(
+            'market-index-controller'  => 'Market\Controller\IndexController',
+        ),
+        'initializers' => array(
+            'Market\Model\ListingsTableAwareInterfaceInitializer',
+        ),
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,

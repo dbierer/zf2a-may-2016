@@ -1,9 +1,11 @@
 <?php
+
 namespace Market\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Market\Model\ListingsTable;
+use Market\Model\ListingsTableAwareInterface;
 
 class ViewController extends AbstractActionController implements ListingsTableAwareInterface
 {
