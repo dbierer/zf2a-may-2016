@@ -1,7 +1,6 @@
 <?php
-namespace Market\Controller;
 
-use Market\Model\ListingsTable;
+namespace Market\Model;
 
 interface ListingsTableAwareInterface
 {

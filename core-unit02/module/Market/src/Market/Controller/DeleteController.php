@@ -1,4 +1,5 @@
 <?php
+
 namespace Market\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -9,6 +10,7 @@ use Zend\Mail;
 use Zend\Session;
 use Market\Model;
 use Market\Form;
+use Market\Model\ListingsTableAwareInterface;
 
 class DeleteController extends AbstractActionController implements ListingsTableAwareInterface
 {

@@ -1,14 +1,15 @@
 <?php
+
 namespace Market\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Market\Model\ListingsTable;
+use Market\Model\ListingsTableAwareInterface;
 
-class IndexController extends AbstractActionController 
-                      implements ListingsTableAwareInterface
+class IndexController extends AbstractActionController implements ListingsTableAwareInterface
 {
-	protected $listingsTable;
+    protected $listingsTable;
 	
     public function indexAction()
     {

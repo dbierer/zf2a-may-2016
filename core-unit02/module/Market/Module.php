@@ -63,8 +63,9 @@ class Module
 			$logger->info($message);		
 		}
 	}
-
-    public function getControllerConfig()
+	
+    // Code has been moved to Market\Model\ListingsTableAwareInterfaceInitializer.php and module.config.php
+    /*public function getControllerConfig()
     {
         return [
             'initializers' => [
@@ -74,10 +75,18 @@ class Module
                             $sl->getServiceLocator()->get('listings-table'));
                     }
                 },
+           ],
+        ];
+    }*/
+	
+    public function getControllerConfig()
+    {
+        return [
+            'initializers' => [
                 'market-test-controller' => function ($instance, $sl) {
                     echo get_class($instance) . ':';
                 },
-           ],
+            ],
         ];
     }
 
