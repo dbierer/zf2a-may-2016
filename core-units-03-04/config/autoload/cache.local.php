@@ -4,7 +4,7 @@ return array(
    		'adapter' => array(
 			'name' => 'filesystem',
     			'options' => array (
-    				'cache_dir' => 'data/cache/',
+    				'cache_dir' => __DIR__ . '/../../data/cache',
     			)
    		),
    		'plugins' => array(
