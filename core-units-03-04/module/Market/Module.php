@@ -54,11 +54,7 @@ class Module
 			$id = $matches->getParam('id');
 			$message = 'Item Viewed: ' . $id;
 			// make sure the app has "write" rights to the log file
-			$writer = new Log\Writer\Stream($params['log']);
-			$formatter = new Log\Formatter\Simple('%timestamp% | %message%');
-			$writer->setFormatter($formatter);
-			$logger = new Log\Logger();
-			$logger->addWriter($writer);
+			$logger = $e->getApplication()->getServiceManager()->get('log');
 			$logger->info($message);		
 		}
 	}

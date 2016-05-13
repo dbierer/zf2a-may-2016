@@ -11,6 +11,11 @@
  * file.
  */
 
-return array(
-    // ...
-);
+return [
+    'service_manager' => [
+    	'factories' => [
+            //Override the "Application\Service\LogFactory
+    	    'Application\Service\LogFactory' => 'MvcLogEvent\Service\LogFactory',
+    	],
+    ],
+];

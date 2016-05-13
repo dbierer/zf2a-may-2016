@@ -72,10 +72,10 @@ return array(
 				'transportation',
 				'wanted',
 			),
-			'params' => array(
+			/*'params' => array(
 				'hits' => 3,
-				'log' => realpath(__DIR__ . '/../../../data/logs') . DIRECTORY_SEPARATOR . 'items_viewed.log',
-			),
+				'log'  => realpath(__DIR__ . '/../../../data/logs') . DIRECTORY_SEPARATOR . 'items_viewed.log',
+			),*/
             'email-info' => array(
             	'to'	=> 'admin@company.com',
             	'from'	=> 'market@company.com',
@@ -84,6 +84,7 @@ return array(
     	),
     	'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+            'logold'    => 'Application\Service\LogFactory',
         ),
     ),
     'translator' => array(

@@ -80,6 +80,19 @@ class PostController extends AbstractActionController implements ListingsTableAw
         			             ['delCode' => $validData['delCode'],
         			              'serviceManager' => $this->getServiceLocator()]
 		             );
+        			
+        			// Log event
+        			$em->setEventClass('MvcLogEvent\Service\MvcLogEvent');
+        			$em->setIdentifiers('MvcLogEventModule');
+        			$em->trigger(
+        			    'triggerMvcLogEvent',
+        			    $this,
+        			    [   'controllerActionName' => __CLASS__ . '\\' . __FUNCTION__,
+        			        'action' => 'add',
+        			        'item' => $validData,
+        			        'serviceManager' => $this->getServiceLocator(),
+        			    ]);
+        			
 				} else {
 					// add flash message
 					$this->flashMessenger()->addMessage('Technical Fault: Unable to Post Your Listing!');
