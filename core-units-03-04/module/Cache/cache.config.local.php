@@ -7,7 +7,8 @@ return [
                 'adapter' => [
                     'name'      => 'filesystem',
                     'options'   => ['ttl' => 3600,
-                        'cache_dir' => __DIR__ . '/../../data/cache'],
+                        'cache_dir' => __DIR__ . '/../../data/cache'
+                    ],
                 ],
                 'plugins' => [
                     // override this on production server to FALSE
