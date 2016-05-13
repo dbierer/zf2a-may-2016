@@ -1,6 +1,12 @@
-data/
-vendor/
 */vendor/
-vendor
+vendor/
 */vendor
+vendor
+public/
+data/
+*/.settings/
+.settings/
+*/.buildpath
+.buildpath
+*/.project
 .project
