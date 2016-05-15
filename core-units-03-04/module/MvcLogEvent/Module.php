@@ -5,7 +5,7 @@
  * @package MvcLogEvent Module
  * @author Andrew Caya
  * @link https://github.com/andrewscaya
- * @version 1.0.0
+ * @version 2.0.0
  * @license http://opensource.org/licenses/GPL-2.0 GNU General Public License, version 2 (GPL-2.0)
  */
 
@@ -26,7 +26,13 @@ class Module
         // Get instance of the SEM
         $sharedEventManager = $eventManager->getSharedManager();
         // Create main log triggering event
-        $sharedEventManager->attach('MvcLogEventModule', 'triggerMvcLogEvent', [$this, 'triggerMvcLogger'], 1);
+        $sharedEventManager->attach(
+            'MvcLogEventModule',
+            'triggerMvcLogEvent',
+            function ($mvcLogEvent) {
+                $mvcLogEvent->logEvent();
+            },
+            1);
     }
 
     public function getConfig()
@@ -43,15 +49,6 @@ class Module
                 ),
             ),
         );
-    }
-    
-    public function triggerMvcLogger(MvcLogEvent $mvcLogEvent)
-    {
-        $controllerActionName = $mvcLogEvent->getParam('controllerActionName');
-        $action = $mvcLogEvent->getParam('action');
-        $item = $mvcLogEvent->getParam('item');
-        $serviceManager = $mvcLogEvent->getParam('serviceManager');
-        $mvcLogEvent->logEvent($controllerActionName, $action, $item, $serviceManager);
     }
 	
 }
