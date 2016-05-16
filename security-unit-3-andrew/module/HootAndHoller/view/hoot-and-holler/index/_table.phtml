@@ -1,0 +1,16 @@
+<table class="table-bordered">
+<tr class="yellow-table-header-row"><th>From</th><th>Time</th><th>Message</th></tr>
+<?php foreach ($this->messages as $row) : ?>
+<tr>
+<td><img src="<?php echo $this->basePath(); ?>/images/p-icon.png" width="30px" height="30px">
+	<?php echo $this->escapeHtml($row['sender_email']);?>
+</td>
+<td><img src="<?php echo $this->basePath(); ?>/images/clock.png">
+	<?php echo $this->escapeHtml($row['date']);?>
+</td>
+<td><img src="<?php echo $this->basePath(); ?>/images/speechbuble-20-grey.png">
+	<?php echo $this->escapeHtml($row['message']);?>
+</td>
+</tr>
+<?php endforeach; ?>
+</table>
