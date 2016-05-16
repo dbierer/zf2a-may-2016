@@ -87,10 +87,10 @@ class PostController extends AbstractActionController implements ListingsTableAw
         			$em->trigger(
         			    'triggerMvcLogEvent',
         			    $this,
-        			    [   'controllerActionName' => __CLASS__ . '\\' . __FUNCTION__,
-        			        'action' => 'add',
+        			    [
+        			        'controllerActionName' => __CLASS__ . '\\' . __FUNCTION__,
+        			        'action' => 'test',
         			        'item' => $validData,
-        			        'serviceManager' => $this->getServiceLocator(),
         			    ]);
         			
 				} else {

@@ -5,22 +5,23 @@ activate the module in config/application.config.php and use it in your
 controllers.  Here is an example of how you can use it in a controller:
 
 [...]
+
 // Log event
 $em->setEventClass('MvcLogEvent\Service\MvcLogEvent');
 $em->setIdentifiers('MvcLogEventModule');
 $em->trigger(
     'triggerMvcLogEvent',
     $this,
-    [   'controllerActionName' => __FUNCTION__,
+    [
+        'controllerActionName' => __CLASS__ . '\\' . __FUNCTION__,
         'action' => 'add',
         'item' => $validData,
-        'serviceManager' => $this->getServiceLocator(),
     ]);
+    
 [...]
 
-You can then adapt the MvcLogEvent\Module's triggerMvcLogger() method
-and the MvcLogEvent\Service\MvcLogEvent's logEvent() method according
-to your needs.
+All parameters are optional and you can therefore modify the logic behind
+MvcLogEvent\Service\MvcLogEvent's logEvent() method to fit your needs.
 
 Have a lot of fun!
 
