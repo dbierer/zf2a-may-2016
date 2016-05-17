@@ -1,0 +1,8 @@
+Date: 	2012-08-10 
+Author: doug@unlikelysource.com
+Zend Framework 2 RC2 Admin Module
+To get this module working:
+1. Create an "Admin" folder under "module"
+2. Unzip the ZIP file into the "Admin" folder
+3. Configure the "db" parameters in "config/module.config.php" to suit your environment
+4. Add "Admin" to the "modules" key in your "application.config.php" file

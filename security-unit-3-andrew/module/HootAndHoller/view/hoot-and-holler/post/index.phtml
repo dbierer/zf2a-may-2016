@@ -1,0 +1,59 @@
+<div class="formPost">
+<p>
+<?php
+$form->prepare();
+$form->setAttribute('action', $this->basePath() . '/post');
+$form->setAttribute('method', 'POST');
+echo $this->form()->openTag($form);
+?>
+<table>
+<tr><td>
+<?php
+$text = $form->get('text');
+echo $this->formRow($text);
+// alternate syntax:
+/*
+echo $this->formLabel($text);
+echo '  ';
+echo $this->formElementTextarea($text);
+echo $this->formElementErrors($text);
+*/
+?>
+</td></tr>
+<tr><td>
+<?php
+$recipient = $form->get('recipient');
+echo $this->formRow($recipient);
+// alternate syntax
+//echo $this->formLabel($recipient);
+//echo '  ';
+//echo $this->formElement($recipient);
+//echo $this->formElementErrors($recipient);
+?>
+</td></tr>
+<tr><td>
+<?php
+$type = $form->get('type');
+echo $this->formLabel($type);
+echo '  ';
+echo $this->formRadio($type);
+echo $this->formElementErrors($type);
+?>
+</td></tr>
+<tr><td>
+<?php
+$submit = $form->get('submit');
+echo $this->formSubmit($submit);
+?>
+</td></tr>
+</table>
+<?php
+echo $this->form()->closeTag($form);
+?>
+</p>
+<br />Form Data Submitted:
+<pre>
+<?php $this->escapeHtml(var_dump($data)); ?>
+</pre>
+</div>
+<div class="imgLogin">&nbsp;</div>
