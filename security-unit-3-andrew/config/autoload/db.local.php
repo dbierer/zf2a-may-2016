@@ -32,7 +32,7 @@ if (stripos($_SERVER['SERVER_NAME'], 'phpcloud.com')) {
 	$username = CONTAINER;
 	$password = CONTAINER_PASSWORD;
 } else {
-	$dbname = 'zf2a_zf2widder_test';
+	$dbname = 'zf2widder';
 	$host = 'localhost';
 	$username = 'zend';
 	$password = 'password';
