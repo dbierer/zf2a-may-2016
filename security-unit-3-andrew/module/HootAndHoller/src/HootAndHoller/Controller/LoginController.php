@@ -183,6 +183,7 @@ class LoginController extends AbstractActionController
         
     	return $this->redirect()->toRoute('login-index');
     }
+    
     public function logoutAction()
     {
     	/** -- Task: need to reference authService property */
@@ -222,11 +223,13 @@ class LoginController extends AbstractActionController
     	}
     	return $this->sessionContainer->counter++;
     }
+    
     protected function logInvalidAttempt($username)
     {
     	$logger = $this->getServiceLocator()->get('invalid-login-logger');
     	$logger->alert($username);
     }
+    
     /** -- Task: OPTIONAL -- rewrite as per lab guide */
     protected function addUser($data)
     {
@@ -319,11 +322,13 @@ class LoginController extends AbstractActionController
     	$this->usersTable = $usersTable;
     	return $this;
     }
+    
     public function setLoginForm(LoginForm $loginForm)
     {
     	$this->loginForm = $loginForm;
     	return $this;
     }
+    
     public function setSessionContainer(Container $sessionContainer)
     {
     	$this->sessionContainer = $sessionContainer;
