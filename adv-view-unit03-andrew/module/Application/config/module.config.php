@@ -53,16 +53,10 @@ return array(
         ),
     ),
     'service_manager' => array(
-    	'factories' => array(
-    		'application-switch-language-form' => function ($sm) {
-    			return new Application\Form\SwitchLanguage($sm->get('languages'));	
-    		},
-            'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
-    	),
     	'services' => array(
     		// languages supported
     		'languages' => array(
-    			'Choose' => 'Choose',
+		    	'' => '',
 		    	'ar_SY' => 'العربية',
 		    	'cs_CZ' => 'čeština',
 		    	'de_DE' => 'Deutsch',
