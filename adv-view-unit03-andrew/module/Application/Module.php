@@ -34,7 +34,8 @@ class Module
     	if ($language) {
     		$languageList = $sm->get('languages');
     		if (in_array($language, array_keys($languageList), TRUE)) {
-    			$translator = $sm->get('translator');
+    			//$translator = $sm->get('translator');
+    			$translator = $sm->get('MvcTranslator');
     			$translator->setLocale($language);
     		}
     	}
