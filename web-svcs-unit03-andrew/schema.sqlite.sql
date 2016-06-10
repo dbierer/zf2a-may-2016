@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS "status" (
+    id CHARACTER(32) PRIMARY KEY,
+    text TEXT NOT NULL,
+    user VARCHAR(64) NOT NULL
+);
