@@ -5,9 +5,9 @@ namespace Status;
 class Status
 {
     protected $id;
-    
+
     protected $text;
-    
+
     /**
      * @return the $id
      */
@@ -39,5 +39,5 @@ class Status
     {
         $this->text = $text;
     }
-    
+
 }

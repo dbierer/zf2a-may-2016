@@ -5,11 +5,11 @@ use Doctrine\ORM\Mapping\ClassMetadataInfo;
 $metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
 $metadata->setPrimaryTable(array(
    'name' => 'registration',
-   'indexes' => 
+   'indexes' =>
    array(
-   'IDX_62A8A7A7A9B3AB3C' => 
+   'IDX_62A8A7A7A9B3AB3C' =>
    array(
-    'columns' => 
+    'columns' =>
     array(
     0 => 'eventLink_id',
     ),
@@ -58,14 +58,14 @@ $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_IDENTITY);
 $metadata->mapOneToOne(array(
    'fieldName' => 'eventlink',
    'targetEntity' => 'Event',
-   'cascade' => 
+   'cascade' =>
    array(
    ),
    'mappedBy' => NULL,
    'inversedBy' => NULL,
-   'joinColumns' => 
+   'joinColumns' =>
    array(
-   0 => 
+   0 =>
    array(
     'name' => 'eventLink_id',
     'referencedColumnName' => 'id',

@@ -13,7 +13,7 @@ class ContactControllerFactory implements FactoryInterface
         $serviceLocator = $services->getServiceLocator();
         $form           = $serviceLocator->get('PhlyContactForm');
         $controller = new ContactController();
-        $controller->setContactForm($form);       
+        $controller->setContactForm($form);
         return $controller;
     }
 }

@@ -12,7 +12,7 @@ class DeleteControllerFactory implements FactoryInterface
     {
         $allServices = $controllers->getServiceLocator();
         $sm = $allServices->get('ServiceManager');
-    	$controller = new DeleteController();
+        $controller = new DeleteController();
         $controller->setListingsTable($sm->get('listings-table'));
         $controller->setDeleteForm($sm->get('delete-form'));
         $controller->setDeleteFormFilter($sm->get('delete-form-filter'));

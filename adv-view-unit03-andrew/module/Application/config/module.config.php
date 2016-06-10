@@ -20,7 +20,7 @@ return array(
                     ),
                 ),
             ),
-        	// The following is a route to simplify getting started creating
+            // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
             // using the path /application/:controller/:action
@@ -53,29 +53,29 @@ return array(
         ),
     ),
     'service_manager' => array(
-    	'services' => array(
-    		// languages supported
-    		'languages' => array(
-		    	'' => '',
-		    	'ar_SY' => 'العربية',
-		    	'cs_CZ' => 'čeština',
-		    	'de_DE' => 'Deutsch',
-		    	'en_US'	=> 'English (US)',
-		    	'es_ES'	=> 'español',
-		    	'fr_CA'	=> 'français canadien',
-		    	'fr_FR'	=> 'français',
-		    	'it_IT' => 'italiano',
-		    	'ja_JP' => '日本語',
-		    	'nb_NO' => 'norsk bokmål',
-		    	'nl_NL' => 'Nederlands',
-		    	'pl_PL' => 'polski',
-		    	'pt_BR' => 'português do Brasil',
-		    	'ru_RU' => 'русский',
-		    	'tr_TR' => 'Türkç',
-		    	'zh_CN' => '中国的',
-		    	'zh_TW' => '中國的',    		
-    		),
-    	),    	
+        'services' => array(
+            // languages supported
+            'languages' => array(
+                '' => '',
+                'ar_SY' => 'العربية',
+                'cs_CZ' => 'čeština',
+                'de_DE' => 'Deutsch',
+                'en_US'	=> 'English (US)',
+                'es_ES'	=> 'español',
+                'fr_CA'	=> 'français canadien',
+                'fr_FR'	=> 'français',
+                'it_IT' => 'italiano',
+                'ja_JP' => '日本語',
+                'nb_NO' => 'norsk bokmål',
+                'nl_NL' => 'Nederlands',
+                'pl_PL' => 'polski',
+                'pt_BR' => 'português do Brasil',
+                'ru_RU' => 'русский',
+                'tr_TR' => 'Türkç',
+                'zh_CN' => '中国的',
+                'zh_TW' => '中國的',
+            ),
+        ),
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',

@@ -2,8 +2,8 @@
 return array(
     'modules' => array(
         'Application',
-    	'Market',
-    	'Search',
+        'Market',
+        'Search',
         'ZfcUser',
     ),
     'module_listener_options' => array(

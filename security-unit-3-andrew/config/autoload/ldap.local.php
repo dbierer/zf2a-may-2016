@@ -25,7 +25,7 @@ return array(
         ),
         'factories' => array(
             'ldap-auth-adapter' => function ($sm) {
-            	return new AuthAdapter($sm->get('ldap-config'));
+                return new AuthAdapter($sm->get('ldap-config'));
             },
         ),
     ),

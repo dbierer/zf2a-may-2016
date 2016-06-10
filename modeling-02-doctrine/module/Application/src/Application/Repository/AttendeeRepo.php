@@ -6,7 +6,7 @@ use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 use Application\Entity\Attendee;
 
-class AttendeeRepo extends EntityRepository 
+class AttendeeRepo extends EntityRepository
                    implements ServiceLocatorAwareInterface
 {
     use ServiceLocatorAwareTrait;
@@ -26,4 +26,4 @@ class AttendeeRepo extends EntityRepository
         $em->flush();
         return $attendee;
     }
-} 
+}

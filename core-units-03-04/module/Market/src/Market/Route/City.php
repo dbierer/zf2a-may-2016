@@ -25,9 +25,9 @@ class City implements RouteInterface, ListingsTableAwareInterface
 {
 
     const DEFAULT_PATTERN = '!/city/(\w+| )!';
-    
+
     protected $listingsTable;
-    
+
     /**
      * RouteInterface to match.
      *
@@ -97,13 +97,13 @@ class City implements RouteInterface, ListingsTableAwareInterface
 
         $uri     = $request->getUri();
         $path    = $uri->getPath();
-        $pattern = (isset($this->defaults['pattern'])) 
-                 ? $this->defaults['pattern'] 
+        $pattern = (isset($this->defaults['pattern']))
+                 ? $this->defaults['pattern']
                  : self::DEFAULT_PATTERN;
         $this->defaults['countries'] = array();
         $this->defaults['city']      = '';
         $routeMatch = new RouteMatch($this->defaults, strlen($this->route));
-        
+
         if ($pathOffset !== null) {
             if ($pathOffset >= 0 && strlen($path) >= $pathOffset && !empty($this->route)) {
                 if (strpos($path, $this->route, $pathOffset) === $pathOffset) {
@@ -154,7 +154,7 @@ class City implements RouteInterface, ListingsTableAwareInterface
     {
         return array();
     }
-    
+
     /**
      * @return the $listingsTable
      */

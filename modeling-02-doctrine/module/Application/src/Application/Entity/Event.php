@@ -16,89 +16,97 @@ class Event
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
      * @ORM\Column(type="string", length=255)
      */
     protected $name;
-    
+
     /**
      * @ORM\Column(type="integer", length=4)
      */
     protected $max_attendees;
-    
+
     /**
      * @ORM\Column(type="datetime")
      */
     protected $date;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Application\Entity\Registration", mappedBy="eventLink")
      */
     protected $registrations = array();
-    
+
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
     }
-    
+
     /**
-	 * @return the $id
-	 */
-	public function getId() {
-		return $this->id;
-	}
+     * @return the $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-	/**
-	 * @return the $name
-	 */
-	public function getName() {
-		return $this->name;
-	}
+    /**
+     * @return the $name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
-	/**
-	 * @return the $max_attendees
-	 */
-	public function getMax_attendees() {
-		return $this->max_attendees;
-	}
+    /**
+     * @return the $max_attendees
+     */
+    public function getMax_attendees()
+    {
+        return $this->max_attendees;
+    }
 
-	/**
-	 * @return the $date
-	 */
-	public function getDate() {
-		return $this->date;
-	}
+    /**
+     * @return the $date
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
 
-	/**
-	 * @param field_type $id
-	 */
-	public function setId($id) {
-		$this->id = $id;
-	}
+    /**
+     * @param field_type $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
-	/**
-	 * @param field_type $name
-	 */
-	public function setName($name) {
-		$this->name = $name;
-	}
+    /**
+     * @param field_type $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
-	/**
-	 * @param field_type $max_attendees
-	 */
-	public function setMax_attendees($max_attendees) {
-		$this->max_attendees = $max_attendees;
-	}
+    /**
+     * @param field_type $max_attendees
+     */
+    public function setMax_attendees($max_attendees)
+    {
+        $this->max_attendees = $max_attendees;
+    }
 
-	/**
-	 * @param field_type $date
-	 */
-	public function setDate($date) {
-		$this->date = $date;
-	}
+    /**
+     * @param field_type $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
 
-	/**
+    /**
      * @return the $registrations
      */
     public function getRegistrations()
@@ -115,6 +123,6 @@ class Event
     }
 
 
-    
-    
+
+
 }

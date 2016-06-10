@@ -32,12 +32,12 @@ class StatusListener extends AbstractListenerAggregate
      * Create a status
      *
      * This method demonstrates:
-     * 
+     *
      * - Retrieving parameters from the event
      * - Setting parameters back into the event
      * - Error handling (or lack thereof, as PhlyRestfully handles exceptions)
-     * 
-     * @param  ResourceEvent $e 
+     *
+     * @param  ResourceEvent $e
      * @return Status
      */
     public function onCreate(ResourceEvent $e)
@@ -64,15 +64,15 @@ class StatusListener extends AbstractListenerAggregate
      *
      * Patch is generally used for partial updates; since we only have one field
      * that may be updated, it is identical to replacing the status.
-     * 
-     * @param  ResourceEvent $e 
+     *
+     * @param  ResourceEvent $e
      * @return Status
      */
     public function onPatch(ResourceEvent $e)
     {
         $data = $e->getParam('data', array());
         $data = (array) $data;
-        
+
         $this->statusTable->update($data, array('id' => $e->getParam('id')));
         return $this->onFetch($e);
     }
@@ -84,10 +84,10 @@ class StatusListener extends AbstractListenerAggregate
      *
      * - Proxy to onPatch() (i.e., nothing)
      *
-     * Update is generally used for replacing a resource; since we only have 
+     * Update is generally used for replacing a resource; since we only have
      * one field that may be updated, it is identical to patching the status.
-     * 
-     * @param  ResourceEvent $e 
+     *
+     * @param  ResourceEvent $e
      * @return Status
      */
     public function onUpdate(ResourceEvent $e)
@@ -103,8 +103,8 @@ class StatusListener extends AbstractListenerAggregate
      * - Retrieve the id from the event
      * - Use the id to delete the status from the table
      * - Indicate success/failure based on result of deletion
-     * 
-     * @param  ResourceEvent $e 
+     *
+     * @param  ResourceEvent $e
      * @return bool
      */
     public function onDelete(ResourceEvent $e)
@@ -122,8 +122,8 @@ class StatusListener extends AbstractListenerAggregate
      * - Use the id to fetch a status from the table
      * - If the resultset is empty, raise an exception with code 404
      * - Otherwise, return the current() status from the resultset
-     * 
-     * @param  ResourceEvent $e 
+     *
+     * @param  ResourceEvent $e
      * @return Status
      * @throws \Exception
      */
@@ -144,8 +144,8 @@ class StatusListener extends AbstractListenerAggregate
      *
      * - Create a TableGatewayPaginator instance with the composed table gateway
      * - Return a Statuses instance that composes the paginator adapter
-     * 
-     * @param  ResourceEvent $e 
+     *
+     * @param  ResourceEvent $e
      * @return Statuses
      */
     public function onFetchAll(ResourceEvent $e)
@@ -153,5 +153,5 @@ class StatusListener extends AbstractListenerAggregate
         $adapter = new TableGatewayPaginator($this->statusTable);
         return new Statuses($adapter);
     }
-    
+
 }

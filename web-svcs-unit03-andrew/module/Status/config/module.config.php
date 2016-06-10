@@ -15,7 +15,7 @@ return array(
         ),
         'resources' => array(
             'Status\StatusController' => array(
-                // Fill in the "listener", "collection_name", "page_size", and 
+                // Fill in the "listener", "collection_name", "page_size", and
                 // "route_name" fields
                 'identifier'           => 'Status\StatusController',
                 'listener'             => 'Status\Listener',

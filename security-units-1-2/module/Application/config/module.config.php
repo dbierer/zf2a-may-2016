@@ -53,36 +53,36 @@ return array(
         ),
     ),
     'service_manager' => array(
-    	'services' => array(
-    		'categories' => array(
-				'barter',
-				'beauty',
-				'clothing',
-				'computer',
-				'entertainment',
-				'free',
-				'garden',
-				'general',
-				'health',
-				'household',
-				'phones',
-				'property',
-				'sporting',
-				'tools',
-				'transportation',
-				'wanted',
-			),
-			'params' => array(
-				'hits' => 3,
-				'log' => realpath(__DIR__ . '/../../../data/logs') . DIRECTORY_SEPARATOR . 'items_viewed.log',
-			),
-            'email-info' => array(
-            	'to'	=> 'admin@company.com',
-            	'from'	=> 'market@company.com',
-            	'dir'	=> realpath(__DIR__ . '/../../../data/logs'),
+        'services' => array(
+            'categories' => array(
+                'barter',
+                'beauty',
+                'clothing',
+                'computer',
+                'entertainment',
+                'free',
+                'garden',
+                'general',
+                'health',
+                'household',
+                'phones',
+                'property',
+                'sporting',
+                'tools',
+                'transportation',
+                'wanted',
             ),
-    	),
-    	'factories' => array(
+            'params' => array(
+                'hits' => 3,
+                'log' => realpath(__DIR__ . '/../../../data/logs') . DIRECTORY_SEPARATOR . 'items_viewed.log',
+            ),
+            'email-info' => array(
+                'to'	=> 'admin@company.com',
+                'from'	=> 'market@company.com',
+                'dir'	=> realpath(__DIR__ . '/../../../data/logs'),
+            ),
+        ),
+        'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
         ),
     ),
@@ -102,12 +102,12 @@ return array(
         ),
     ),
     'view_helpers' => array(
-    	'invokables' => array(
-    		'elementToRow' 		=> 'Application\Helper\ElementToRow',
-    		'radioElementToRow' => 'Application\Helper\RadioElementToRow',
-    		'fileElementToRow' 	=> 'Application\Helper\FileElementToRow',
-    		'leftLinks' 		=> 'Application\Helper\LeftLinks',
-	    ),
+        'invokables' => array(
+            'elementToRow' 		=> 'Application\Helper\ElementToRow',
+            'radioElementToRow' => 'Application\Helper\RadioElementToRow',
+            'fileElementToRow' 	=> 'Application\Helper\FileElementToRow',
+            'leftLinks' 		=> 'Application\Helper\LeftLinks',
+        ),
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,

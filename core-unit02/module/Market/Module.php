@@ -23,7 +23,7 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         // log items people view
-	    $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
+        $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
     }
 
     public function getConfig()
@@ -41,29 +41,29 @@ class Module
             ),
         );
     }
-    
-	public function onDispatch(MvcEvent $e)
-	{
-		// get routing information
-	 	$matches    = $e->getRouteMatch();
-	 	$controller = $matches->getParam('controller');
-	 	$action		= $matches->getParam('action');
-	 	// get params
+
+    public function onDispatch(MvcEvent $e)
+    {
+        // get routing information
+        $matches    = $e->getRouteMatch();
+        $controller = $matches->getParam('controller');
+        $action		= $matches->getParam('action');
+        // get params
         $params = $e->getApplication()->getServiceManager()->get('params');
-	 	// log items viewed
-		if ($controller == 'market-view-controller' && $action == 'item') {
-			$id = $matches->getParam('id');
-			$message = 'Item Viewed: ' . $id;
-			// make sure the app has "write" rights to the log file
-			$writer = new Log\Writer\Stream($params['log']);
-			$formatter = new Log\Formatter\Simple('%timestamp% | %message%');
-			$writer->setFormatter($formatter);
-			$logger = new Log\Logger();
-			$logger->addWriter($writer);
-			$logger->info($message);		
-		}
-	}
-	
+        // log items viewed
+        if ($controller == 'market-view-controller' && $action == 'item') {
+            $id = $matches->getParam('id');
+            $message = 'Item Viewed: ' . $id;
+            // make sure the app has "write" rights to the log file
+            $writer = new Log\Writer\Stream($params['log']);
+            $formatter = new Log\Formatter\Simple('%timestamp% | %message%');
+            $writer->setFormatter($formatter);
+            $logger = new Log\Logger();
+            $logger->addWriter($writer);
+            $logger->info($message);
+        }
+    }
+
     // Code has been moved to Market\Model\ListingsTableAwareInterfaceInitializer.php and module.config.php
     /*public function getControllerConfig()
     {
@@ -78,7 +78,7 @@ class Module
            ],
         ];
     }*/
-	
+
     public function getControllerConfig()
     {
         return [

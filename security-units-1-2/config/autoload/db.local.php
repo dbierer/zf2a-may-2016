@@ -18,8 +18,8 @@ return array(
         'username'       => 'zend',
         'password'       => 'password',
         'driver_options' => array(
-        		PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'",
-        		// NOTE: change to PDO::ERRMODE_SILENT for production! 
-        		PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING),
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'",
+                // NOTE: change to PDO::ERRMODE_SILENT for production!
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING),
     ),
 );
