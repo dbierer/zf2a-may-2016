@@ -10,7 +10,7 @@ use Application\Entity\Event;
 class RegistrationRepo extends EntityRepository implements ServiceLocatorAwareInterface
 {
     use ServiceLocatorAwareTrait;
-    
+
     /**
      * @param Application\Entity\Event $eventEntity
      * @param array $regData
@@ -34,4 +34,4 @@ class RegistrationRepo extends EntityRepository implements ServiceLocatorAwareIn
         $em->flush();
         return $registration;
     }
-} 
+}

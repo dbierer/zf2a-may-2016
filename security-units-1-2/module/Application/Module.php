@@ -22,17 +22,17 @@ class Module
         $moduleRouteListener->attach($eventManager);
         $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
     }
-    
-	public function onDispatch(MvcEvent $e)
-	{
-		// get the list of categories
+
+    public function onDispatch(MvcEvent $e)
+    {
+        // get the list of categories
         $categoryList = $e->getApplication()->getServiceManager()->get('categories');
-		// get view model
-	 	$vm = $e->getViewModel();
-	 	// store search info in a variable
-	 	$vm->setVariable('categories', $categoryList);
-	}
-        
+        // get view model
+        $vm = $e->getViewModel();
+        // store search info in a variable
+        $vm->setVariable('categories', $categoryList);
+    }
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';

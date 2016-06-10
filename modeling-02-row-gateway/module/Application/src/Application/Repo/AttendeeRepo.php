@@ -12,7 +12,7 @@ class AttendeeRepo
     public function setTable($adapter)
     {
         $this->table = new TableGateway(
-            self::TABLE_NAME, 
+            self::TABLE_NAME,
             $adapter,
             new RowGatewayFeature('id'));
     }

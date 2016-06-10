@@ -35,12 +35,12 @@ class MarketTest extends TestCase
      * @var ServiceManager
      */
     protected $serviceManager;
-	protected $urlPath = 'http://onlinemarket.complete/';
-	
+    protected $urlPath = 'http://onlinemarket.complete/';
+
     public function setUp()
     {
         $appConfig = array_merge(require __DIR__ . '/../../../../config/application.config.php',
-        						 require __DIR__ . '/../../../../config/autoload/db.local.php');
+                                 require __DIR__ . '/../../../../config/autoload/db.local.php');
 
         $config = function ($s) {
             return new Config(array(

@@ -11,13 +11,13 @@ return array(
             'hoot-and-holler-login-form' => 'HootAndHoller\Service\LoginFormFactory',
             'hoot-and-holler-post-form' => 'HootAndHoller\Service\HootAndHollerFormFactory',
         )
-	),
+    ),
     'controllers' => array(
         'aliases' => array(
             'hoot-and-holler-index' => 'hoot-and-holler-index-factory',
             'login-index' => 'hoot-and-holler-login-factory',
             'post-index' => 'hoot-and-holler-post-factory',
-		),
+        ),
         'factories' => array(
             'hoot-and-holler-index-factory' => 'HootAndHoller\Service\IndexControllerFactory',
             'hoot-and-holler-login-factory' => 'HootAndHoller\Service\LoginControllerFactory',

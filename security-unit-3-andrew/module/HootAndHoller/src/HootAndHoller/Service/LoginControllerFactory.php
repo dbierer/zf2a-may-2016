@@ -19,6 +19,6 @@ class LoginControllerFactory implements FactoryInterface
         /** -- Task: add calls to authAdapter and authService setters */
         $controller->setAuthService($allServices->get('ldap-auth-service'));
         $controller->setAuthAdapter($allServices->get('ldap-auth-adapter'));
-		return $controller;
+        return $controller;
     }
 }

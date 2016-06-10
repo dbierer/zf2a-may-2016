@@ -59,7 +59,7 @@ class Module
             'Application\Controller\Index'  => 'Application\Controller\IndexController',
             'Application\Controller\Signup' => 'Application\Controller\SignupController',
             'Application\Controller\Admin'  => 'Application\Controller\AdminController',
-          ],  
+          ],
         );
     }
     // Add this method:

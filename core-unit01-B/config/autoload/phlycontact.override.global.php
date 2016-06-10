@@ -7,7 +7,7 @@
 return array(
     'service_manager' => array(
         'services' => array(
-            'application-contact-preferences' => 
+            'application-contact-preferences' =>
                 array(
                     'EMAIL'  => 'Email Subscription',
                     'OFFERS' => 'Special Offers',
@@ -26,11 +26,11 @@ return array(
             'PhlyContact\Controller\Contact' => 'Application\Factory\ContactControllerFactory',
         ),
     ),
-	'view_manager' => array(
-		'template_map' => array(
+    'view_manager' => array(
+        'template_map' => array(
             //'application/contact/index' => __DIR__ . '/../../vendor/PhlyContact/view/phly-contact/contact/index.phtml',
             'application/contact/index' => __DIR__ . '/../../module/Application/view/application/contact/index.phtml',
-		    'application/contact/thank-you' => __DIR__ . '/../../vendor/PhlyContact/view/phly-contact/contact/thank-you.phtml',
-		),
-	),
+            'application/contact/thank-you' => __DIR__ . '/../../vendor/PhlyContact/view/phly-contact/contact/thank-you.phtml',
+        ),
+    ),
 );

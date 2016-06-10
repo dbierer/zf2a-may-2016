@@ -11,4 +11,3 @@ if ($bcrypt->verify($password, $securePass)) {
 } else {
         echo "The password is NOT correct.\n";
 }
-

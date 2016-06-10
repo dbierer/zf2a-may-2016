@@ -17,15 +17,15 @@ return array(
         'username'       => 'zend',
         'password'       => 'password',
         'driver_options' => array(
-        		PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'",
-        		// NOTE: change to PDO::ERRMODE_SILENT for production! 
-        		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'",
+                // NOTE: change to PDO::ERRMODE_SILENT for production!
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION),
     ),
-	'service_manager' => array(
-		'factories' => array(
-			'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
-		),
-	),
+    'service_manager' => array(
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+        ),
+    ),
     'doctrine' => array(
         'connection' => array(
             // default connection name

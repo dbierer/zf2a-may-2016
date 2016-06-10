@@ -1,24 +1,24 @@
 <?php
 return array(
     'controllers' => array(
-    	'invokables' => array(
+        'invokables' => array(
             // test controller has no dependencies
-    		'search-test-controller' => 'Search\Controller\TestController',
-    	),
+            'search-test-controller' => 'Search\Controller\TestController',
+        ),
         'factories' => array(
-        	// search controller depends on the database
+            // search controller depends on the database
             'search-controller' => 'Search\Factory\SearchControllerFactory',
         ),
     ),
-	'service_manager' => array(
-		'invokables' => array(
-			'search-form' => 'Search\Form\SearchForm',
-			'search-form-filter' => 'Search\Form\SearchFormFilter',
-		),
-		'factories' => array(
-			'search-listings-table' => 'Search\Factory\ListingsTableFactory',
-		),
-	),
+    'service_manager' => array(
+        'invokables' => array(
+            'search-form' => 'Search\Form\SearchForm',
+            'search-form-filter' => 'Search\Form\SearchFormFilter',
+        ),
+        'factories' => array(
+            'search-listings-table' => 'Search\Factory\ListingsTableFactory',
+        ),
+    ),
     'router' => array(
         'routes' => array(
             'search-home' => array(
@@ -66,7 +66,7 @@ return array(
                     ),
                 ),
             ),
-        	// used to test that the controller shows up
+            // used to test that the controller shows up
             'search-test' => array(
                 'type'    => 'Literal',
                 'options' => array(

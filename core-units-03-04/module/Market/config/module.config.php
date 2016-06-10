@@ -51,7 +51,7 @@ return array(
                         'action'        => 'city-list',
                     ),
                     'constraints' => array(
-                        'alpha' => '[A-Z]{1}',    
+                        'alpha' => '[A-Z]{1}',
                     ),
                 ),
             ),
@@ -150,18 +150,18 @@ return array(
         ),
     ),
     'service_manager' => array(
-    	'invokables' => array(
+        'invokables' => array(
             'post-form' 		=> 'Market\Form\PostForm',
             'post-form-filter' 	=> 'Market\Form\PostFormFilter',
             'delete-form' 		=> 'Market\Form\DeleteForm',
             'delete-form-filter'=> 'Market\Form\DeleteFormFilter',
-    	),
+        ),
         'factories' => array(
             'listings-table' 	=> 'Market\Factory\ListingsTableFactory',
             'city-codes-table' 	=> 'Market\Factory\CityCodesTableFactory',
             // moved to Notification module
             //'mail-transport' 	=> 'Market\Factory\MailTransportFactory',
-    	),
+        ),
     ),
     'translator' => array(
         'locale' => 'en_US',
@@ -174,12 +174,12 @@ return array(
         ),
     ),
     'controllers' => array(
-    	'factories' => array(
+        'factories' => array(
             'market-index-controller'  => 'Market\Factory\IndexControllerFactory',
             'market-view-controller'   => 'Market\Factory\ViewControllerFactory',
             'market-post-controller'   => 'Market\Factory\PostControllerFactory',
             'market-delete-controller' => 'Market\Factory\DeleteControllerFactory',
-    	),
+        ),
         'initializers' => array(
             // injects listings table
             'market-controller-initializer' => 'Market\Model\ListingsTableInitializer',
