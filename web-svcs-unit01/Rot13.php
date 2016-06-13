@@ -6,8 +6,8 @@ class Rot13
 {
     /**
      * Encode a message via rot13
-     * 
-     * @param  string $message 
+     *
+     * @param  string $message
      * @return string
      */
     public function encode($message)
@@ -17,8 +17,8 @@ class Rot13
 
     /**
      * "Decode" a rot13 message
-     * 
-     * @param  string $message 
+     *
+     * @param  string $message
      * @return string
      */
     public function decode($message)

@@ -6,8 +6,8 @@ use Zend\View\Model\ViewModel;
 
 class TestController extends AbstractActionController
 {
-	
-	public function indexAction()
+
+    public function indexAction()
     {
         return new ViewModel(array(	'test' => 'TEST CONTROLLER'));
     }

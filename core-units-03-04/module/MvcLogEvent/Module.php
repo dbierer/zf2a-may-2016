@@ -22,7 +22,7 @@ class Module
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-        
+
         // Get instance of the SEM
         $sharedEventManager = $eventManager->getSharedManager();
         // Create main log triggering event
@@ -50,5 +50,5 @@ class Module
             ),
         );
     }
-	
+
 }

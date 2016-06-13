@@ -13,7 +13,7 @@ class My\Auth\Adapter implements AdapterInterface
     {
         // ...
     }
-    
+
     /**
      * Performs an authentication attempt
      *
@@ -26,4 +26,3 @@ class My\Auth\Adapter implements AdapterInterface
         // ...
     }
 }
-

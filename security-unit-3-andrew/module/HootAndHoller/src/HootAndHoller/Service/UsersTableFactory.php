@@ -12,6 +12,6 @@ class UsersTableFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $services)
     {
         $adapter   = $services->get('general-adapter');
-    	return new UsersTable($adapter);
+        return new UsersTable($adapter);
     }
 }

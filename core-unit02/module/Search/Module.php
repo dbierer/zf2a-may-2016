@@ -23,7 +23,7 @@ class Module implements AutoloaderProviderInterface
             ),
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-		    // if we're in a namespace deeper than one level we need to fix the \ in the path
+            // if we're in a namespace deeper than one level we need to fix the \ in the path
                     __NAMESPACE__ => __DIR__ . '/src/' . str_replace('\\', '/' , __NAMESPACE__),
                 ),
             ),
@@ -42,17 +42,17 @@ class Module implements AutoloaderProviderInterface
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-	    $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
+        $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
     }
-    
-	public function onDispatch(MvcEvent $e)
-	{
-		// get routing information
-	 	$matches    = $e->getRouteMatch();
-		$controller = $matches->getParam('controller');
-		// get view model
-	 	$vm = $e->getViewModel();
-	 	// store search info in a variable
-	 	$vm->setVariable('searchHome', array('route' => 'search-home', 'label' => 'Search'));
-	}
+
+    public function onDispatch(MvcEvent $e)
+    {
+        // get routing information
+        $matches    = $e->getRouteMatch();
+        $controller = $matches->getParam('controller');
+        // get view model
+        $vm = $e->getViewModel();
+        // store search info in a variable
+        $vm->setVariable('searchHome', array('route' => 'search-home', 'label' => 'Search'));
+    }
 }

@@ -8,12 +8,12 @@ use Zend\Mvc\Controller\Plugin\Redirect;
 use Zend\Mvc\InjectApplicationEventInterface;
 use Zend\View\Model\ViewModel;
 
-class SignupController extends AbstractActionController 
+class SignupController extends AbstractActionController
                        implements InjectApplicationEventInterface, RepoAwareInterface
 {
 
     use RepoTrait;
-    
+
     public function indexAction()
     {
         $eventId = (int) $this->params('event');
@@ -67,7 +67,7 @@ class SignupController extends AbstractActionController
             $ticketData[$key] = $filter->filter($value);
         }
     }
-    
+
     protected function processForm(array $ticketData, $event, $regData)
     {
         $reg = $this->registrationRepo->persist($event, $regData);
@@ -78,7 +78,7 @@ class SignupController extends AbstractActionController
             $reg->setAttendees($attendee);
             $this->registrationRepo->update($reg);
         }
-        
+
         return true;
     }
 

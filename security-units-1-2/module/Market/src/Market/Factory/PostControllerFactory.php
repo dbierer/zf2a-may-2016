@@ -12,7 +12,7 @@ class PostControllerFactory implements FactoryInterface
     {
         $allServices = $controllers->getServiceLocator();
         $sm = $allServices->get('ServiceManager');
-    	$controller = new PostController();
+        $controller = new PostController();
         $controller->setListingsTable($sm->get('listings-table'));
         $controller->setCityCodesTable($sm->get('city-codes-table'));
         $controller->setPostForm($sm->get('post-form'));

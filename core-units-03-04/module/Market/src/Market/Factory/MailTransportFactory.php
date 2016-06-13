@@ -9,7 +9,7 @@ class MailTransportFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $services)
     {
-    	// see module.config.php
+        // see module.config.php
         $emailInfo = $services->get('email-info');
         // file transport is used for testing and development
         $transport = new Transport\File(new Transport\FileOptions(array('path' => $emailInfo['dir'])));

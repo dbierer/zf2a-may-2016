@@ -121,17 +121,17 @@ return array(
         ),
     ),
     'service_manager' => array(
-    	'invokables' => array(
+        'invokables' => array(
             'post-form' 		=> 'Market\Form\PostForm',
             'post-form-filter' 	=> 'Market\Form\PostFormFilter',
             'delete-form' 		=> 'Market\Form\DeleteForm',
             'delete-form-filter'=> 'Market\Form\DeleteFormFilter',
-    	),
+        ),
         'factories' => array(
             'listings-table' 	=> 'Market\Factory\ListingsTableFactory',
             'city-codes-table' 	=> 'Market\Factory\CityCodesTableFactory',
             'mail-transport' 	=> 'Market\Factory\MailTransportFactory',
-    	),
+        ),
     ),
     'translator' => array(
         'locale' => 'en_US',
@@ -144,12 +144,12 @@ return array(
         ),
     ),
     'controllers' => array(
-    	'factories' => array(
+        'factories' => array(
             'market-index-controller'  => 'Market\Factory\IndexControllerFactory',
             'market-view-controller'   => 'Market\Factory\ViewControllerFactory',
             'market-post-controller'   => 'Market\Factory\PostControllerFactory',
             'market-delete-controller' => 'Market\Factory\DeleteControllerFactory',
-    	),
+        ),
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,

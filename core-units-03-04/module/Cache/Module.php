@@ -17,19 +17,19 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class Module
 {
-    
+
     const CACHE_EVENT_CLEAR      = 'cache.event.clear';
     const CACHE_EVENT_IDENTIFIER = 'cache.event.identifier';
     protected $cacheKey;
-    
+
     public function onBootstrap(MvcEvent $e)
     {
         $eventManager = $e->getApplication()->getEventManager();
-        
+
         // MVC event
         $eventManager->attach(MvcEvent::EVENT_DISPATCH, array($this, 'outputFromCache'), 100);
         $eventManager->attach(MvcEvent::EVENT_FINISH,   array($this, 'outputToCache'), 100);
-        
+
         // shared events
         $shared = $eventManager->getSharedManager();
         // '*' allows *any* event manager instance to trigger
@@ -59,13 +59,13 @@ class Module
 
     /**
      * Builds a unique cache key based on all params passed
-     * 
+     *
      * @param RouteMatch $routeMatch
      * @return string $cacheKey
      */
     protected function getCacheKey($routeMatch)
     {
-        if (!$this->cacheKey) { 
+        if (!$this->cacheKey) {
             $this->cacheKey = __NAMESPACE__;
             $params = $routeMatch->getParams();
             if (is_array($params)) {
@@ -73,7 +73,7 @@ class Module
                     if (is_string($item)) {
                         $this->cacheKey .= '_' . $item;
                     }
-                }                
+                }
             } else {
                 $this->cacheKey = $params;
             }
@@ -82,7 +82,7 @@ class Module
         return $this->cacheKey;
     }
 
-    public function outputToCache(MvcEvent $e) 
+    public function outputToCache(MvcEvent $e)
     {
         $routeMatch = $e->getRouteMatch();
         $flag       = $routeMatch->getParam('refresh');
@@ -92,7 +92,7 @@ class Module
             $cache->setItem($this->getCacheKey($routeMatch), $e->getResponse());
         }
     }
-    
+
     public function onClear($e)
     {
         $controller = $e->getTarget();      // controller instance
@@ -105,7 +105,7 @@ class Module
         $cache = $sm->get('cache-instance');
         $cache->removeItem($this->getCacheKey($routeMatch));
     }
-    
+
     public function getServiceConfig()
     {
         return [
@@ -113,8 +113,8 @@ class Module
                 'cache-config' => [
                     'adapter' => [
                         'name'      => 'filesystem',
-                        'options'   => ['ttl' => 3600, 
-                                        'cache_dir' => __DIR__ . '/../../data/cache'], 
+                        'options'   => ['ttl' => 3600,
+                                        'cache_dir' => __DIR__ . '/../../data/cache'],
                     ],
                     'plugins' => [
                         // override this on production server to FALSE

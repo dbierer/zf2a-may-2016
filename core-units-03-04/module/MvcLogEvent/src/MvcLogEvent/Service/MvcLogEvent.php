@@ -31,12 +31,12 @@ class MvcLogEvent extends Event
         $eventManager = $this->getTarget()->getEventManager();
         $eventManager->setIdentifiers('MvcLogEventModule');
         $eventManager->trigger(__FUNCTION__, $this);
-        
+
         // Optional parameters
         $controllerActionName = $this->getParam('controllerActionName');
         $action = $this->getParam('action');
         $item = $this->getParam('item');
-        
+
         switch ($action) {
             case "add":
                 $logger->info('Added new post "' . $item['title'] . '"');
@@ -47,9 +47,9 @@ class MvcLogEvent extends Event
                 $logger->warn('ERROR: ' . $controllerActionName . ': Bad request to the logger.');
                 return FALSE;
         }
-        
+
         $eventManager->trigger(__FUNCTION__ . '.post', $this);
-        
+
         return TRUE;
     }
 

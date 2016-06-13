@@ -4,7 +4,7 @@ namespace Application\Model;
 use Zend\Db\RowGateway;
 use Application\Model\Attendee;
 use Application\Repo\AttendeeRepo;
-class Registration extends RowGateway
+class Registation extends RowGateway
 {
     protected $rowgateway;
     public function __construct(RowGateway $rowgateway = NULL)

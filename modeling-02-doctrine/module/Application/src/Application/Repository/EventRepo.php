@@ -17,4 +17,4 @@ class EventRepo extends EntityRepository implements ServiceLocatorAwareInterface
         $this->getEntityManager()->persist($event);
         $this->getEntityManager()->flush();
     }
-} 
+}

@@ -27,10 +27,10 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         // log items people view
-	    $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
-	    // user registration
-	    $shared = $eventManager->getSharedManager();
-	    $shared->attach('*', 'register', [$this, 'onSaveUser']);
+        $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
+        // user registration
+        $shared = $eventManager->getSharedManager();
+        $shared->attach('*', 'register', [$this, 'onSaveUser']);
     }
 
     public function getConfig()
@@ -48,72 +48,72 @@ class Module
             ),
         );
     }
-    
-	public function onDispatch(MvcEvent $e)
-	{
-		// get routing information
-	 	$matches    = $e->getRouteMatch();
-	 	$controller = $matches->getParam('controller');
-	 	$action		= $matches->getParam('action');
-	 	// get params
+
+    public function onDispatch(MvcEvent $e)
+    {
+        // get routing information
+        $matches    = $e->getRouteMatch();
+        $controller = $matches->getParam('controller');
+        $action		= $matches->getParam('action');
+        // get params
         $params = $e->getApplication()->getServiceManager()->get('params');
-	 	// log items viewed
-		if ($controller == 'market-view-controller' && $action == 'item') {
-			$id = $matches->getParam('id');
-			$message = 'Item Viewed: ' . $id;
-			// make sure the app has "write" rights to the log file
-			$writer = new Log\Writer\Stream($params['log']);
-			$formatter = new Log\Formatter\Simple('%timestamp% | %message%');
-			$writer->setFormatter($formatter);
-			$logger = new Log\Logger();
-			$logger->addWriter($writer);
-			$logger->info($message);		
-		}
-	}
-	
-	public function onSaveUser($e)
-	{
-	    $user = $e->getParam('user');      // our User entity
-	    $sm   = $e->getTarget()->getServiceManager();
-	    $user->setCcnumber($sm->get('market-block-cipher')->encrypt($user->getCcnumber()));
-	}
-	
-	public function getServiceConfig()
-	{
-	    return [
-	        'services' => [
-	            'market-key' => 'Super Secret Key!!!???',
-	        ],
-	        'factories' => [
-	            'market-element-ccnumber' => function ($sm) {
-	                $element = new Text('ccnumber');
-	                $element->setLabel('Enter CC Number');
-	                return $element;
-	            },
-	            'market-input-ccnumber' => function ($sm) {
-	                $input = new Input('ccnumber');
-	                $input->getValidatorChain()
-	                      ->attach(new CreditCard());
-	                $input->getFilterChain()
-	                      ->attach(new StripTags());
-	                return $input;
-	            },
-	            'market-block-cipher' => function ($sm) {
-	                $blockCipher = BlockCipher::factory('mcrypt', array('algo' => 'aes'));
-	                $blockCipher->setKey($sm->get('market-key'));
-	                return $blockCipher;
-	            },
-	        ],
-	        'delegators' => [
-	           'zfcuser_register_form' => [
-	               function ($sm, $name, $requestedName, $callback) {
-	                   $form = $callback();
-	                   $form->add($sm->get('market-element-ccnumber'));
-	                   $form->getInputFilter()->add($sm->get('market-input-ccnumber'));
+        // log items viewed
+        if ($controller == 'market-view-controller' && $action == 'item') {
+            $id = $matches->getParam('id');
+            $message = 'Item Viewed: ' . $id;
+            // make sure the app has "write" rights to the log file
+            $writer = new Log\Writer\Stream($params['log']);
+            $formatter = new Log\Formatter\Simple('%timestamp% | %message%');
+            $writer->setFormatter($formatter);
+            $logger = new Log\Logger();
+            $logger->addWriter($writer);
+            $logger->info($message);
+        }
+    }
+
+    public function onSaveUser($e)
+    {
+        $user = $e->getParam('user');      // our User entity
+        $sm   = $e->getTarget()->getServiceManager();
+        $user->setCcnumber($sm->get('market-block-cipher')->encrypt($user->getCcnumber()));
+    }
+
+    public function getServiceConfig()
+    {
+        return [
+            'services' => [
+                'market-key' => 'Super Secret Key!!!???',
+            ],
+            'factories' => [
+                'market-element-ccnumber' => function ($sm) {
+                    $element = new Text('ccnumber');
+                    $element->setLabel('Enter CC Number');
+                    return $element;
+                },
+                'market-input-ccnumber' => function ($sm) {
+                    $input = new Input('ccnumber');
+                    $input->getValidatorChain()
+                          ->attach(new CreditCard());
+                    $input->getFilterChain()
+                          ->attach(new StripTags());
+                    return $input;
+                },
+                'market-block-cipher' => function ($sm) {
+                    $blockCipher = BlockCipher::factory('mcrypt', array('algo' => 'aes'));
+                    $blockCipher->setKey($sm->get('market-key'));
+                    return $blockCipher;
+                },
+            ],
+            'delegators' => [
+               'zfcuser_register_form' => [
+                   function ($sm, $name, $requestedName, $callback) {
+                       $form = $callback();
+                       $form->add($sm->get('market-element-ccnumber'));
+                       $form->getInputFilter()->add($sm->get('market-input-ccnumber'));
                        return $form;
-	               },
-	           ],
-	        ],
-	    ];
-	}
+                   },
+               ],
+            ],
+        ];
+    }
 }

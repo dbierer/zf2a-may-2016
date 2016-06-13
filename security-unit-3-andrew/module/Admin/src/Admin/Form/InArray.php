@@ -5,7 +5,7 @@ use Zend\Validator\AbstractValidator;
 use Zend\Validator\Exception;
 /**
  * Rewrite InArray to accept an array of values as input
- * 
+ *
  * @author db
  *
  */
@@ -167,19 +167,19 @@ class InArray extends AbstractValidator
         $haystack = $this->getHaystack();
         $result = FALSE;
         if (is_array($value)) {
-			foreach ($value as $item) {
-				if (in_array($item, $haystack, TRUE)) {
-					$result = TRUE;
-				} else {
-					$this->error(self::NOT_IN_ARRAY);
-				}
-			}        	
+            foreach ($value as $item) {
+                if (in_array($item, $haystack, TRUE)) {
+                    $result = TRUE;
+                } else {
+                    $this->error(self::NOT_IN_ARRAY);
+                }
+            }
         } else {
-	        if (in_array($value, $haystack, TRUE)) {
-	        	$result = TRUE;
-	        } else {
-	        	$this->error(self::NOT_IN_ARRAY);
-	        }
+            if (in_array($value, $haystack, TRUE)) {
+                $result = TRUE;
+            } else {
+                $this->error(self::NOT_IN_ARRAY);
+            }
         }
         return $result;
     }

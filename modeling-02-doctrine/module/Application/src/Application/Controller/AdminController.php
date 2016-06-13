@@ -9,7 +9,7 @@ class AdminController extends AbstractActionController implements RepoAwareInter
 {
 
     use RepoTrait;
-    
+
     public function indexAction()
     {
         $eventEntity = FALSE;
@@ -28,9 +28,9 @@ class AdminController extends AbstractActionController implements RepoAwareInter
         $viewModel->setTemplate('application/admin/index');
         return $viewModel;
     }
-    
+
     protected function listRegistrations($eventId)
-    {        
+    {
         $eventEntity = $this->eventRepo->findById($eventId);
         $vm = new ViewModel(array('event' => $eventEntity));
         $vm->setTemplate('application/admin/list.phtml');

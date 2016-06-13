@@ -7,23 +7,23 @@ use Market\Model\ListingsTable;
 
 class IndexController extends AbstractActionController
 {
-	protected $listingsTable;
-	
+    protected $listingsTable;
+
     public function indexAction()
     {
-    	// latest listing by entry ID
-    	$latest 	= $this->listingsTable->getLatestListing();
-    	// check for messages
-    	$messages 	= ($this->flashMessenger()->hasMessages()) ? $this->flashMessenger()->getMessages() : NULL;	
-    	// done
-        return new ViewModel(array('latest' 	=> $latest, 
-        						   'messages' 	=> $messages));
+        // latest listing by entry ID
+        $latest 	= $this->listingsTable->getLatestListing();
+        // check for messages
+        $messages 	= ($this->flashMessenger()->hasMessages()) ? $this->flashMessenger()->getMessages() : NULL;
+        // done
+        return new ViewModel(array('latest' 	=> $latest,
+                                   'messages' 	=> $messages));
     }
-    
+
     // called by IndexControllerFactory
     public function setListingsTable(ListingsTable $table)
     {
-    	$this->listingsTable = $table;
+        $this->listingsTable = $table;
     }
-    
+
 }

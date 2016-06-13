@@ -5,11 +5,11 @@ use Doctrine\ORM\Mapping\ClassMetadataInfo;
 $metadata->setInheritanceType(ClassMetadataInfo::INHERITANCE_TYPE_NONE);
 $metadata->setPrimaryTable(array(
    'name' => 'attendee',
-   'indexes' => 
+   'indexes' =>
    array(
-   'IDX_1150D567833D8F43' => 
+   'IDX_1150D567833D8F43' =>
    array(
-    'columns' => 
+    'columns' =>
     array(
     0 => 'registration_id',
     ),
@@ -37,14 +37,14 @@ $metadata->setIdGeneratorType(ClassMetadataInfo::GENERATOR_TYPE_IDENTITY);
 $metadata->mapOneToOne(array(
    'fieldName' => 'registration',
    'targetEntity' => 'Registration',
-   'cascade' => 
+   'cascade' =>
    array(
    ),
    'mappedBy' => NULL,
    'inversedBy' => NULL,
-   'joinColumns' => 
+   'joinColumns' =>
    array(
-   0 => 
+   0 =>
    array(
     'name' => 'registration_id',
     'referencedColumnName' => 'id',

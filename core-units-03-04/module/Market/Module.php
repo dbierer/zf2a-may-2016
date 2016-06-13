@@ -22,7 +22,7 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
         // log items people view
-	    $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
+        $eventManager->attach('dispatch', array($this, 'onDispatch'), 100);
     }
 
     public function getConfig()
@@ -40,40 +40,40 @@ class Module
             ),
         );
     }
-    
-	public function onDispatch(MvcEvent $e)
-	{
-		// get routing information
-	 	$matches    = $e->getRouteMatch();
-	 	$controller = $matches->getParam('controller');
-	 	$action		= $matches->getParam('action');
-	 	// get params
-        $params = $e->getApplication()->getServiceManager()->get('params');
-	 	// log items viewed
-		if ($controller == 'market-view-controller' && $action == 'item') {
-			$id = $matches->getParam('id');
-			$message = 'Item Viewed: ' . $id;
-			// make sure the app has "write" rights to the log file
-			$logger = $e->getApplication()->getServiceManager()->get('log');
-			$logger->info($message);		
-		}
-	}
 
-	public function getRouteConfig()
-	{
-	    return [
-	        'invokables' => [
-	            'CityRoute' => 'Market\Route\City',  
-	        ],
-	        'initializers' => [
-	            'city-route-initializer' => function ($instance, $sl) {
-	                if ($instance instanceof \Market\Model\ListingsTableAwareInterface) {
-	                   $instance->setListingsTable(
-	                       $sl->getServiceLocator()->get('listings-table'));
-	                }
-	            },
-	        ],
-	    ];
-	     
-	}
+    public function onDispatch(MvcEvent $e)
+    {
+        // get routing information
+        $matches    = $e->getRouteMatch();
+        $controller = $matches->getParam('controller');
+        $action		= $matches->getParam('action');
+        // get params
+        $params = $e->getApplication()->getServiceManager()->get('params');
+        // log items viewed
+        if ($controller == 'market-view-controller' && $action == 'item') {
+            $id = $matches->getParam('id');
+            $message = 'Item Viewed: ' . $id;
+            // make sure the app has "write" rights to the log file
+            $logger = $e->getApplication()->getServiceManager()->get('log');
+            $logger->info($message);
+        }
+    }
+
+    public function getRouteConfig()
+    {
+        return [
+            'invokables' => [
+                'CityRoute' => 'Market\Route\City',
+            ],
+            'initializers' => [
+                'city-route-initializer' => function ($instance, $sl) {
+                    if ($instance instanceof \Market\Model\ListingsTableAwareInterface) {
+                       $instance->setListingsTable(
+                           $sl->getServiceLocator()->get('listings-table'));
+                    }
+                },
+            ],
+        ];
+
+    }
 }

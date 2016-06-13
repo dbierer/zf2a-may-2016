@@ -47,16 +47,16 @@ class Module
     {
         return array(
             'factories' => array(
-                'EventTable' =>  function($sm) {
+                'EventTable' =>  function ($sm) {
                     return new EventTable(EventTable::TABLE_NAME,
                                             $sm->get('Zend\Db\Adapter\Adapter'));
                 },
-                'RegistrationTable' =>  function($sm) {
+                'RegistrationTable' =>  function ($sm) {
                     return new RegistrationTable(RegistrationTable::TABLE_NAME,
                                                    $sm->get('Zend\Db\Adapter\Adapter'));
                 },
-                'AttendeeTable' =>  function($sm) {
-                    return new AttendeeTable(AttendeeTable::TABLE_NAME, 
+                'AttendeeTable' =>  function ($sm) {
+                    return new AttendeeTable(AttendeeTable::TABLE_NAME,
                                                $sm->get('Zend\Db\Adapter\Adapter'));
                 },
                 'RegDataFilter' => function ($sm) {
